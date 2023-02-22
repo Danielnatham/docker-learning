@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    container_name: api
+    build:
+      context: back/
+    ports:
+      - "8000:80"
+  client:
+    container_name: client
+    build:
+      context: front/
+    ports:
+      - "80:80"
+    depends_on:
+      [api]
